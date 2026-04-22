@@ -41,6 +41,36 @@
     </div>
 
     <div class="row g-3 mt-1">
+        <div class="col-lg-4 col-6">
+            <div class="small-box text-bg-info">
+                <div class="inner">
+                    <h3>{{ $totalKisanBonds }}</h3>
+                    <p>Kisan Bonds</p>
+                </div>
+                <div class="small-box-footer">Bond records</div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-6">
+            <div class="small-box text-bg-secondary">
+                <div class="inner">
+                    <h3>{{ $totalAraziBonds }}</h3>
+                    <p>Arazi Bonds</p>
+                </div>
+                <div class="small-box-footer">Registry-linked land bonds</div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-12">
+            <div class="small-box text-bg-dark">
+                <div class="inner">
+                    <h3>{{ $totalBondReceipts }}</h3>
+                    <p>Bond Receipts</p>
+                </div>
+                <div class="small-box-footer">Customer bond entries</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-3 mt-1">
         <div class="col-lg-6">
             <div class="card card-outline card-primary h-100">
                 <div class="card-header"><h5 class="card-title mb-0">Land Status</h5></div>

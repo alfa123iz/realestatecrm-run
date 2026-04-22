@@ -50,16 +50,76 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item"><a href="{{ route('kisans.index') }}" class="nav-link {{ request()->routeIs('kisans.*') ? 'active' : '' }}"><i class="nav-icon bi bi-person-lines-fill"></i><p>Kisan</p></a></li>
+                    <li class="nav-item {{ request()->routeIs('kisans.*') || request()->routeIs('kisan-bonds.*') || request()->routeIs('investors.*') || request()->routeIs('registries.*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->routeIs('kisans.*') || request()->routeIs('kisan-bonds.*') || request()->routeIs('investors.*') || request()->routeIs('registries.*') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-person-lines-fill"></i>
+                            <p>
+                                Kishan
+                                <i class="nav-arrow bi bi-chevron-right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item"><a href="{{ route('kisans.index') }}" class="nav-link {{ request()->routeIs('kisans.index') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Kishan Entry</p></a></li>
+                            <li class="nav-item"><a href="{{ route('customer-bond-payments.create') }}" class="nav-link {{ request()->routeIs('customer-bond-payments.create') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Cheque Entry form</p></a></li>
+                            <li class="nav-item {{ request()->routeIs('investors.*') || request()->routeIs('kisan-bonds.*') || request()->routeIs('customer-bond-payments.*') || request()->routeIs('payments.*') ? 'menu-open' : '' }}">
+                                <a href="#" class="nav-link {{ request()->routeIs('investors.*') || request()->routeIs('kisan-bonds.*') || request()->routeIs('customer-bond-payments.*') || request()->routeIs('payments.*') ? 'active' : '' }}">
+                                    <i class="nav-icon bi bi-circle"></i>
+                                    <p>
+                                        Invester(%)
+                                        <i class="nav-arrow bi bi-chevron-right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item"><a href="{{ route('kisan-bonds.index') }}" class="nav-link {{ request()->routeIs('kisan-bonds.*') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>Invester Bond</p></a></li>
+                                    <li class="nav-item"><a href="{{ route('customer-bond-payments.index') }}" class="nav-link {{ request()->routeIs('customer-bond-payments.*') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>Invester Recipt</p></a></li>
+                                    <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ request()->routeIs('payments.*') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>Invester Payment Details</p></a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('kisan-bonds.index') }}" class="nav-link {{ request()->routeIs('kisan-bonds.index') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Kishan Bond</p></a></li>
+                            <li class="nav-item"><a href="{{ route('kisan-bonds.create') }}" class="nav-link {{ request()->routeIs('kisan-bonds.create') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Kishan Bond UPDATE</p></a></li>
+                            <li class="nav-item"><a href="{{ route('customer-bond-payments.index') }}" class="nav-link {{ request()->routeIs('customer-bond-payments.index') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Kishan Recipt Update</p></a></li>
+                            <li class="nav-item"><a href="{{ route('payments.create') }}" class="nav-link {{ request()->routeIs('payments.create') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Kishan Payment</p></a></li>
+                            <li class="nav-item"><a href="{{ route('investors.index') }}" class="nav-link {{ request()->routeIs('investors.index') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Invester Entry</p></a></li>
+                            <li class="nav-item"><a href="{{ route('registries.index') }}" class="nav-link {{ request()->routeIs('registries.*') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Arazi Bond</p></a></li>
+                            <li class="nav-item"><a href="{{ route('registries.create') }}" class="nav-link {{ request()->routeIs('registries.create') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Arazi Bond Entry</p></a></li>
+                            <li class="nav-item"><a href="{{ route('kisans.create') }}" class="nav-link {{ request()->routeIs('kisans.create') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>ADD kishan for mention payment</p></a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a href="{{ route('arazis.index') }}" class="nav-link {{ request()->routeIs('arazis.*') ? 'active' : '' }}"><i class="nav-icon bi bi-map"></i><p>Arazi</p></a></li>
+                    <li class="nav-item {{ request()->routeIs('payments.*') || request()->routeIs('customer-bond-payments.*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ request()->routeIs('payments.*') || request()->routeIs('customer-bond-payments.*') ? 'active' : '' }}">
+                            <i class="nav-icon bi bi-receipt"></i>
+                            <p>
+                                Reciept
+                                <i class="nav-arrow bi bi-chevron-right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item {{ request()->routeIs('customer-bond-payments.create') || request()->routeIs('payments.create') || request()->routeIs('payments.index') ? 'menu-open' : '' }}">
+                                <a href="#" class="nav-link {{ request()->routeIs('customer-bond-payments.create') || request()->routeIs('payments.create') || request()->routeIs('payments.index') ? 'active' : '' }}">
+                                    <i class="nav-icon bi bi-dot"></i>
+                                    <p>
+                                        Recipt Entry
+                                        <i class="nav-arrow bi bi-chevron-right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item"><a href="{{ route('customer-bond-payments.create') }}" class="nav-link {{ request()->routeIs('customer-bond-payments.create') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Recipt Entry</p></a></li>
+                                    <li class="nav-item"><a href="{{ route('payments.create') }}" class="nav-link {{ request()->routeIs('payments.create') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>Extra Payment</p></a></li>
+                                    <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ request()->routeIs('payments.index') ? 'active' : '' }}"><i class="nav-icon bi bi-circle"></i><p>EMI DETAILS</p></a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="{{ route('customer-bond-payments.index') }}" class="nav-link {{ request()->routeIs('customer-bond-payments.index') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>Recipt Edit or Delete</p></a></li>
+                            <li class="nav-item"><a href="{{ route('payments.print') }}" class="nav-link {{ request()->routeIs('payments.print') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>Print Recipt</p></a></li>
+                            <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ request()->routeIs('payments.index') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>Delete Recipt</p></a></li>
+                            <li class="nav-item"><a href="{{ route('customer-bond-payments.index') }}" class="nav-link {{ request()->routeIs('customer-bond-payments.index') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>Cheque Bounce</p></a></li>
+                            <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ request()->routeIs('payments.index') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>User Recipt Details</p></a></li>
+                            <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ request()->routeIs('payments.index') ? 'active' : '' }}"><i class="nav-icon bi bi-dot"></i><p>User Recived Amount Details</p></a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a href="{{ route('plots.index') }}" class="nav-link {{ request()->routeIs('plots.*') ? 'active' : '' }}"><i class="nav-icon bi bi-pin-map"></i><p>Plot Location</p></a></li>
-                    <li class="nav-item"><a href="{{ route('registries.index') }}" class="nav-link {{ request()->routeIs('registries.*') ? 'active' : '' }}"><i class="nav-icon bi bi-journal-text"></i><p>Registry</p></a></li>
-                    <li class="nav-item"><a href="{{ route('kisan-bonds.index') }}" class="nav-link {{ request()->routeIs('kisan-bonds.*') ? 'active' : '' }}"><i class="nav-icon bi bi-file-earmark-text"></i><p>Kisan Bond</p></a></li>
-                    <li class="nav-item"><a href="{{ route('payments.index') }}" class="nav-link {{ request()->routeIs('payments.*') ? 'active' : '' }}"><i class="nav-icon bi bi-cash-coin"></i><p>Payments</p></a></li>
-                    <li class="nav-item"><a href="{{ route('customer-bond-payments.index') }}" class="nav-link {{ request()->routeIs('customer-bond-payments.*') ? 'active' : '' }}"><i class="nav-icon bi bi-receipt"></i><p>Customer Bond Payments</p></a></li>
                     <li class="nav-item"><a href="{{ route('customers.index') }}" class="nav-link {{ request()->routeIs('customers.*') ? 'active' : '' }}"><i class="nav-icon bi bi-people"></i><p>Customers</p></a></li>
                     <li class="nav-item"><a href="{{ route('agents.index') }}" class="nav-link {{ request()->routeIs('agents.*') ? 'active' : '' }}"><i class="nav-icon bi bi-person-badge"></i><p>Agents</p></a></li>
-                    <li class="nav-item"><a href="{{ route('investors.index') }}" class="nav-link {{ request()->routeIs('investors.*') ? 'active' : '' }}"><i class="nav-icon bi bi-graph-up-arrow"></i><p>Investors</p></a></li>
                     <li class="nav-item"><a href="{{ route('partners.index') }}" class="nav-link {{ request()->routeIs('partners.*') ? 'active' : '' }}"><i class="nav-icon bi bi-diagram-3"></i><p>Partners</p></a></li>
                     <li class="nav-item"><a href="{{ route('arazi-documents.index') }}" class="nav-link {{ request()->routeIs('arazi-documents.*') ? 'active' : '' }}"><i class="nav-icon bi bi-file-earmark-arrow-up"></i><p>Documents</p></a></li>
                 </ul>

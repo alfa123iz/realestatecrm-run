@@ -25,6 +25,7 @@ Route::resource('plots', PlotController::class)->except(['show']);
 Route::resource('customers', CustomerController::class)->except(['show']);
 Route::resource('agents', AgentController::class)->except(['show']);
 Route::resource('registries', RegistryController::class)->except(['show']);
+Route::get('payments/print', [PaymentController::class, 'printReceipt'])->name('payments.print');
 Route::resource('payments', PaymentController::class)->except(['show']);
 Route::resource('kisan-bonds', KisanBondController::class)->except(['show']);
 Route::resource('customer-bond-payments', CustomerBondPaymentController::class)->except(['show']);

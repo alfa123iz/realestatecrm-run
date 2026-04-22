@@ -19,6 +19,33 @@ class PaymentController extends Controller
     {
     }
 
+    public function printReceipt(Request $request)
+    {
+        $receiptNo = trim((string) $request->query('receipt_no', ''));
+        $payment = null;
+
+        if ($receiptNo !== '') {
+            $payment = Payment::with([
+                'registry.arazi.kisan',
+                'registry.customer',
+                'registry.agent',
+                'customer',
+                'kisan',
+            ])
+                ->where('receipt_no', $receiptNo)
+                ->orWhere('reference_no', $receiptNo)
+                ->latest('payment_date')
+                ->latest('id')
+                ->first();
+        }
+
+        return view('payments.print', [
+            'title' => 'Print Recipt',
+            'payment' => $payment,
+            'receiptNo' => $receiptNo,
+        ]);
+    }
+
     protected function resourceTitle(): string
     {
         return 'Payment';

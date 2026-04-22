@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use App\Models\Arazi;
+use App\Models\CustomerBondPayment;
 use App\Models\Customer;
 use App\Models\Kisan;
+use App\Models\KisanBond;
 use App\Models\Payment;
+use App\Models\Registry;
 use App\Services\RegistryLifecycleService;
 use Illuminate\View\View;
 
@@ -23,6 +26,10 @@ class DashboardController extends Controller
             'soldArazis' => Arazi::where('status', 'sold')->count(),
             'totalCustomers' => Customer::count(),
             'totalAgents' => Agent::count(),
+            'totalKisanBonds' => KisanBond::count(),
+            // Registry is treated as arazi bond flow for legacy-compatible dashboard summary.
+            'totalAraziBonds' => Registry::count(),
+            'totalBondReceipts' => CustomerBondPayment::count(),
             'recentPayments' => Payment::with(['customer', 'kisan', 'registry.arazi'])
                 ->latest()
                 ->take(5)
